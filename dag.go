@@ -144,7 +144,7 @@ func StoreDir(store KVStore, dir Dir, h hash.Hash) *Object {
 			treeObject.Links = append(treeObject.Links, Link{
 				Hash: hash,
 				Size: int(file.Size()),
-				// Name: file.Name(),
+				Name: file.Name(),
 			})
 			typeName := "link"
 			if tmp.Links == nil {
@@ -159,7 +159,7 @@ func StoreDir(store KVStore, dir Dir, h hash.Hash) *Object {
 			treeObject.Links = append(treeObject.Links, Link{
 				Hash: hash,
 				Size: int(dir.Size()),
-				// Name: dir.Name(),
+				Name: dir.Name(),
 			})
 			typeName := "tree"
 			treeObject.Data = append(treeObject.Data, []byte(typeName)...) //将子节点的类型存储到treeObject中
